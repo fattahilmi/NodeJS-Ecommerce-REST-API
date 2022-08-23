@@ -1,0 +1,87 @@
+POST http://localhost:3000/api/users/userposttest
+content-type: application/json
+
+{
+    "username": "John"
+}
+
+###
+POST http://localhost:3000/api/auth/register
+content-type: application/json
+
+{
+    "username": "fattah",
+    "email": "fattah@gmail.com",
+    "password": "fattah"
+}
+
+###
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "username": "fattah",
+    "password": "fattah"
+}
+
+###
+PUT http://localhost:3000/api/users/630065a22973e2a57a250961
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDA4Mzk2MGFmYmFmOGE0ZDlmODM4YyIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjExMzU0MTQsImV4cCI6MTY2MTM5NDYxNH0.rLJloxoLwIqyIuQaCJCznzCd1sOHj--xfVlp8JkA_Rw
+
+{
+    "username": "Johnny"
+}
+
+### get by id, only admin
+GET http://localhost:3000/api/users/find/630065a22973e2a57a250961
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDJlZTM2NGEyYmM5NGQzNTFjMjQ3MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTEzNjQ3NywiZXhwIjoxNjYxMzk1Njc3fQ.fZYLczzIo0k33uixuBeqg8t6grTj0OG8an68zbOSmM0
+
+### GET ALL USER
+GET  http://localhost:3000/api/users
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDJlZTM2NGEyYmM5NGQzNTFjMjQ3MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTEzNjQ3NywiZXhwIjoxNjYxMzk1Njc3fQ.fZYLczzIo0k33uixuBeqg8t6grTj0OG8an68zbOSmM0
+
+### post product
+POST http://localhost:3000/api/product
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDJlZTM2NGEyYmM5NGQzNTFjMjQ3MiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTIyNjM5NiwiZXhwIjoxNjYxNDg1NTk2fQ.BMoCEGedI_0WFQb5SGZBr_PT3dMgGc_TrSj0eWB0Pt4
+
+{
+    "title": "nike air max 2",
+    "desc": "nike air max 2022 black edition",
+    "color": "black",
+    "categories": ["shoes", "woman"],
+    "img": "test",
+    "size": "38",
+    "price": 8000
+}
+
+### GET ALL PRODUCTS, bisa ?new=true utk sort, dan ?category=... per kategori
+GET http://localhost:3000/api/product?category=shoes
+
+### add order
+POST http://localhost:3000/api/order
+content-type: application/json
+
+{
+    "userId": "630065a22973e2a57a250961",
+    "products": [
+        {
+            "productId": "3213asfasfas",
+            "quantity": 2
+        },
+        {
+            "productId": "32443234sdfsdf",
+            "quantity": 1
+        }
+    ],
+    "amount": 100,
+    "address": "USA"
+}
+
+### income
+GET http://localhost:3000/api/order/income
+content-type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMDRhZTM5ZmFiZmFhN2MwZWJmZTUwMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTI1MTE3NSwiZXhwIjoxNjYxNTEwMzc1fQ.OPHjZanB2Xlt0PyphvduPx_PWd9_ZfKjPKJDrUnjerg
